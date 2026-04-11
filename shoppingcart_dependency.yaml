@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoppingcart-app
+  labels:
+    app: shoppingcart-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shoppingcart-app
+  template:
+    metadata:
+      labels:
+        app: shoppingcart-app
+    spec:
+      containers:
+        - name: shoppingcart-app
+          image: amirnoori1/shoppingcart-v3:latest   # <-- update to your Docker Hub image
+          imagePullPolicy: Never                 # use Never for local Minikube images
+          env:
+            - name: DISPLAY
+              value: "host.minikube.internal:0.0"
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Dprism.order=sw"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
