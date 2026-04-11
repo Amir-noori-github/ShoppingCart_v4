@@ -94,11 +94,12 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <!-- ONLY exclude JavaFX UI classes -->
                                 <exclude>**/MainApp.class</exclude>
                                 <exclude>**/MainController.class</exclude>
                                 <exclude>**/ItemRow.class</exclude>
+                                <exclude>**/DatabaseConnection.class</exclude>
                             </excludes>
+
                         </configuration>
                     </execution>
 
