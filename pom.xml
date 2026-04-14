@@ -14,10 +14,9 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.projectKey> shoppingcart-v4</sonar.projectKey>
         <javafx.version>21.0.6</javafx.version>
 
-        <!-- REQUIRED FOR SONAR -->
-        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <dependencies>
@@ -98,6 +97,7 @@
                                 <exclude>**/MainController.class</exclude>
                                 <exclude>**/ItemRow.class</exclude>
                                 <exclude>**/DatabaseConnection.class</exclude>
+
                             </excludes>
 
                         </configuration>
@@ -118,5 +118,4 @@
 
         </plugins>
     </build>
-
 </project>
