@@ -8,7 +8,7 @@ pipeline {
     environment {
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
         DOCKERHUB_CREDENTIALS_ID = 'Docker-Hub'
-        DOCKERHUB_REPO = 'amirnoori1/shoppingcart-v3'
+        DOCKERHUB_REPO = 'amirnoori1/shoppingcart-v4'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Check') {
             steps {
-                git branch: 'main', url: 'https://github.com/Amir-noori-github/ShoppingCart_v3.git'
+                git branch: 'main', url: 'https://github.com/Amir-noori-github/ShoppingCart_v4.git'
             }
         }
 

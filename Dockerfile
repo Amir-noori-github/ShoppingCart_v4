@@ -24,4 +24,4 @@ RUN mvn clean package -DskipTests
 # Debug
 RUN ls -l target/
 
-CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/shoppingcart-v3.jar"]
+CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/shoppingcart-v4.jar"]

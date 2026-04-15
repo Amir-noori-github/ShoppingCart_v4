@@ -7,8 +7,12 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LocalizationService {
+
+    private static final Logger LOGGER = Logger.getLogger(LocalizationService.class.getName());
 
     // Private constructor to prevent instantiation (SonarQube requirement)
     private LocalizationService() {
@@ -21,7 +25,6 @@ public class LocalizationService {
     public static Map<String, String> getLocalizedStrings(Locale locale) {
         Map<String, String> map = new HashMap<>();
 
-        // Use modern API instead of deprecated Locale constructor
         String lang = locale.getLanguage(); // "en", "ar", "fi", etc.
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -38,9 +41,9 @@ public class LocalizationService {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            String msg = "Failed to load localized strings for language: " + lang;
+            LOGGER.log(Level.SEVERE, msg, e);
         }
-
         return map;
     }
 }
